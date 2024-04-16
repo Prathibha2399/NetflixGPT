@@ -30,8 +30,8 @@ const Body = () => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 // User is logged in or Signed up
-              const {uid, email, dispName} = user;
-               dispatch(addUser({uid : uid, email: email, name: dispName}));
+              const {uid, email, displayName} = user;
+               dispatch(addUser({uid : uid, email: email, name: displayName}));
                // navigate("/browse")
             } else {
               // User is signed out

@@ -5,12 +5,16 @@ import { checkValidData } from "../utils/validate";
 
 import {useNavigate} from "react-router-dom";
 
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from "firebase/auth";
 import {auth} from "../utils/firebase";
+import { useDispatch } from "react-redux";
+import {addUser} from "../utils/userSlice";
 
 const Login = () => {
 
     const navigate = useNavigate();
+
+    const dispatch = useDispatch();
 
     const [isSignInForm, setIsSignInForm] = useState(true);
 
@@ -33,7 +37,6 @@ const Login = () => {
         //const message = (isSignInForm) ? checkValidData(email.current.value , password.current.value) : checkValidDataSignUp(email.current.value , password.current.value, name.current.value , cnfPassword.current.value);
 
         const message = checkValidData(email.current.value , password.current.value);
-
         setErrMessage(message);
 
         if(message) return;
@@ -46,14 +49,24 @@ const Login = () => {
             .then((userCredential) => {
                const user = userCredential.user; 
                console.log(user);
+               // Update users profile
+               updateProfile(user, {
+                    displayName: name.current.value
+                    }).then(() => {
+                    // Profile updated!
+                        const {uid, email, displayName} = auth.currentUser;
+                        dispatch(addUser({uid : uid, email: email, name: displayName}));
+                        navigate("/browse");
+                    }).catch((error) => {
+                        // An error occurred
+                        setErrMessage(error.message);
+                    })
             })
             .catch((error) => {
               const errorCode = error.code;
               const errorMessage = error.message;
               setErrMessage(errorCode + " - " + errorMessage);
             });
-
-            navigate("/browse")
 
         }else{
             // Sign-In
@@ -64,6 +77,7 @@ const Login = () => {
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                console.log(errorCode);
                 setErrMessage(errorCode + " - " + errorMessage);
             });
 
