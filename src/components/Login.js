@@ -9,6 +9,7 @@ import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfil
 import {auth} from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import {addUser} from "../utils/userSlice";
+import { BG_IMAGE } from "../utils/Constants";
 
 const Login = () => {
 
@@ -92,8 +93,8 @@ const Login = () => {
             <Header />
 
             <div>
-                <img className = "w-screen absolute"
-                src = "https://assets.nflxext.com/ffe/siteui/vlv3/c1366fb4-3292-4428-9639-b73f25539794/3417bf9a-0323-4480-84ee-e1cb2ff0966b/IN-en-20240408-popsignuptwoweeks-perspective_alpha_website_medium.jpg"
+                <img className = "w-screen absolute h-screen"
+                src = {BG_IMAGE} 
                 alt = "logo"></img>
             </div>
 
