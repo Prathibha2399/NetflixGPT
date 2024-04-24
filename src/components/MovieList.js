@@ -13,7 +13,7 @@ const MovieList = ({title, movies}) => {
             <h1 className = "text-2xl font-bold text-white  mx-4">{title}</h1>
             <div className = "flex p-2 m-4">
                 <div className = "flex">
-                    {movies.map(movie => 
+                    {movies?.map(movie => 
                     <MovieCard key = {movie.id} poster_path = {movie.poster_path}/>)}
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { API_OPTIONS, BG_IMAGE } from "../utils/Constants";
+import { API_OPTIONS } from "../utils/Constants";
 import lang from "../utils/languageConstants";
 import { useDispatch, useSelector } from "react-redux";
 import { useRef } from "react";
@@ -46,7 +46,7 @@ const GptSearchBar = () => {
 
         const searchResults = await Promise.all(data);
 
-        console.log(searchResults);
+        //console.log(searchResults);
 
         dispatch(addSearchResults({moviesName : recommendedMovies , moviesResult : searchResults}));
 
@@ -54,7 +54,7 @@ const GptSearchBar = () => {
 
     return (  
              <div className = "flex justify-center p-[10%]">
-                 <form className = "grid grid-cols-12 bg-black w-1/2"    onSubmit = {(e) => e.preventDefault()}>
+                 <form className = "grid grid-cols-12 bg-black w-1/2" onSubmit = {(e) => e.preventDefault()}>
                      <input 
                         ref = {searchText}
                         type = "text" 
