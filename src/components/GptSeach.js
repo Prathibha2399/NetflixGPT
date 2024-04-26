@@ -6,11 +6,12 @@ const GptSearch = () => {
     return (
         <div>
             <div>
-                <img src = {BG_IMAGE} className = "w-screen opacity-95 fixed -z-20" />
+                <img src = {BG_IMAGE} className = "w-screen h-screen object-cover opacity-95 fixed -z-20" />
             </div>
-
-            <GptSearchBar />
-            <GptMoviesRecommendation />
+            <div className = "pt-[50%] md:pt-[5%] sm:pt-[35%]">
+                <GptSearchBar />
+                <GptMoviesRecommendation />
+            </div>
         </div>
     )
 }

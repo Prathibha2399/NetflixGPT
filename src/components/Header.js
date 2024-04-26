@@ -63,32 +63,32 @@ const Header = () => {
 
 
     return(
-        <div className = "absolute font-extrabold px-8 bg-gradient-to-br from-black z-10 w-full py-3 justify-between flex">
-            <img className = "w-52"
+        <div className = "absolute font-extrabold px-8 bg-gradient-to-b from-black z-10 w-full py-3 md:justify-between flex flex-col md:flex-row  md:bg-gradient-to-br from-black">
+            <img className = "mx-auto md:mx-0 md:w-52 w-48 sm:w-52"
             src = {LOGO}
             alt = "logo"></img>
 
             
             {user && (
-                <div className = "justify-evenly flex p-2">
+                <div className = "justify-evenly flex">
                     
-                   {check && (<select className = " bg-transparent pl-2 border-collapse rounded-sm text-white font-normal" onClick = {langHandler}>
+                   {check && (<select className = " bg-transparent md:m-4 text-white font-normal" onClick = {langHandler}>
                       {STD_LANGUAGE.map((lan) => (
                         <option key = {lan.identifier} 
                             value = {lan.identifier} 
-                            className = "bg-black text-white bg-opacity-80">{lan.name}</option>
+                            className = "bg-black text-white bg-opacity-85 ">{lan.name}</option>
                       ))}
                     </select> )}
                     
                     
                     <button 
-                      className = "rounded-md bg-purple-700 text-black italic font-medium m-4 px-6"
+                      className = "rounded-md bg-purple-700 text-black italic font-medium md:m-6 px-4 hover:bg-purple-600 active:bg-purple-300"
                       onClick = {handleSearchPage}>{check? lang[config].homePage : lang[config].search}</button>
                     
-                    <span className = "p-2 m-4 font-bold text-red-600 text-xl">{user?.name}</span>
+                {/*     <span className = "p-2 m-4 font-bold text-red-600 text-xl">{user?.name}</span> */}
                     
                     <button 
-                        className = "border border-red-700 bg-gradient-to-b from-red-800 to-red-950 text-justify text-white font-medium p-2 my-4 rounded-xl flex"
+                        className = "border border-red-700 bg-gradient-to-b from-red-800 to-red-950 text-justify text-white font-medium p-2 md:my-6 rounded-xl flex m-1"
                         onClick = {signOutFunction}>{lang[config].signOut}</button>
                 </div>
             )}
