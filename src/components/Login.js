@@ -92,46 +92,46 @@ const Login = () => {
         <div>
             <Header />
 
-            <div>
-                <img className = "w-screen absolute h-screen"
+            <div className = "absolute">
+                <img className = "h-screen w-screen object-cover"
                 src = {BG_IMAGE} 
                 alt = "logo"></img>
             </div>
 
         
             <form onSubmit = {(e) => e.preventDefault()} 
-            className = "w-3/12 p-12 absolute my-40 mx-auto right-0 left-0 text-white bg-black bg-opacity-80">
-                <h1 className = "font-bold text-3xl py-4 ">{isSignInForm ? "Sign In" : "Sign Up"}</h1>
+            className = "w-9/12 md:w-3/12 md:p-12 p-6 absolute my-40 mx-auto right-0 left-0 text-white bg-black bg-opacity-80">
+                <h1 className = "font-bold md:text-3xl text-2xl py-4 ">{isSignInForm ? "Sign In" : "Sign Up"}</h1>
 
                 {!isSignInForm && (<input 
                     ref = {name}
                     type="text" 
                     placeholder="Full Name" 
-                    className = "p-4 my-4 rounded-md w-full bg-gray-800"
+                    className = "md:p-4 md:my-4 p-3 my-2 rounded-md w-full bg-gray-800"
                     ></input>)}
 
                 <input 
                     ref = {email}
                     type = "text" 
                     placeholder = "Email or Phone number" 
-                    className = "p-4 my-4 rounded-md w-full bg-gray-800"></input>
+                    className = "md:p-4 md:my-4 p-3 my-3 rounded-md w-full bg-gray-800"></input>
 
                 <input 
                     ref = {password}
                     type = "password" 
                     placeholder ="Password" 
-                    className = "p-4 my-4 rounded-md w-full bg-gray-800"></input>
+                    className = "md:p-4 md:my-4 p-3 my-3 rounded-md w-full bg-gray-800"></input>
 
                 {!isSignInForm && (<input 
                     ref = {cnfPassword}
                     type="password" 
                     placeholder="Confirm Password" 
-                    className="p-4 my-4 rounded-md w-full bg-gray-800"></input>)}
+                    className="md:p-4 md:my-4 p-3 my-3 rounded-md w-full bg-gray-800"></input>)}
 
                 <p className = "text-red-500 p-2 font-semibold text-lg">{errMessage}</p>
 
                 <button 
-                    className = "p-4 my-6 bg-red-700 rounded-md w-full cursor-pointer"
+                    className = "md:p-4 md:my-6 p-2 my-2 bg-red-700 rounded-md w-full cursor-pointer"
                     onClick = {HandleForm}>{isSignInForm ? "Sign In" : "Sign Up"}</button>
 
                 <p className = "p-4 cursor-pointer" onClick = {ToggleForm}>{isSignInForm? "New to Netflix? Sign up now." : "Already registered? Sign In."}</p>

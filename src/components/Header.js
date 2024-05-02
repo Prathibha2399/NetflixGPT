@@ -63,8 +63,8 @@ const Header = () => {
 
 
     return(
-        <div className = "absolute font-extrabold px-8 bg-gradient-to-b from-black z-10 w-full py-3 md:justify-between flex flex-col md:flex-row  md:bg-gradient-to-br from-black">
-            <img className = "mx-auto md:mx-0 md:w-52 w-48 sm:w-52"
+        <div className = "absolute font-extrabold px-6 py-1 z-10 w-screen md:justify-between flex flex-col bg-gradient-to-b from-black md:flex-row md:bg-gradient-to-br from-black">
+            <img className = "mx-auto md:mx-0 md:w-52 w-48 sm:w-52 pb-1"
             src = {LOGO}
             alt = "logo"></img>
 
@@ -82,13 +82,13 @@ const Header = () => {
                     
                     
                     <button 
-                      className = "rounded-md bg-purple-700 text-black italic font-medium md:m-6 px-4 hover:bg-purple-600 active:bg-purple-300"
+                      className = "rounded-md bg-purple-700 text-black italic font-medium md:m-8 px-4 hover:bg-purple-600 active:bg-purple-300"
                       onClick = {handleSearchPage}>{check? lang[config].homePage : lang[config].search}</button>
                     
                 {/*     <span className = "p-2 m-4 font-bold text-red-600 text-xl">{user?.name}</span> */}
                     
                     <button 
-                        className = "border border-red-700 bg-gradient-to-b from-red-800 to-red-950 text-justify text-white font-medium p-2 md:my-6 rounded-xl flex m-1"
+                        className = "border border-red-700 bg-gradient-to-b from-red-800 to-red-950 text-justify text-white font-medium p-2 md:my-8 rounded-xl flex"
                         onClick = {signOutFunction}>{lang[config].signOut}</button>
                 </div>
             )}

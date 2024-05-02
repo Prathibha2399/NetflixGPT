@@ -18,7 +18,7 @@ export const useTrailers = (movieID) => {
     
         const trailers = json.results.filter(video => video.type === "Trailer");
         const trailer = trailers.length ? trailers[0] : json.results[0];   // if trailer not present, use other videos
-        console.log(trailer);
+        //console.log(trailer);
 
         dispatch(addTrailer(trailer));
     };

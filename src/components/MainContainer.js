@@ -9,12 +9,12 @@ export const MainContainer = () => {
     if(movies === null) return; //early return 
 
     const mainMovie = movies[0]; 
-    console.log(mainMovie);
+    //console.log(mainMovie);
 
     const {original_title, overview, id} = mainMovie;
 
     return(
-        <div className = "pt-[10%] md:pt-0">
+        <div className = "pt-[25%] md:pt-0 bg-black">
             <VideoTitle title = {original_title} overview = {overview} />
             <VideoBg movieID = {id}/>
         </div>
