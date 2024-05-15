@@ -1,5 +1,5 @@
 import { API_OPTIONS } from "../utils/Constants";
-import { addCastDetails } from "../utils/moviesSlice";
+import { addCastDetails, addMovieId } from "../utils/moviesSlice";
 import MovieCard from "./MovieCard";
 import { useDispatch } from "react-redux";
 import { addCrewDetails } from "../utils/moviesSlice";
@@ -12,9 +12,10 @@ const MovieList = ({title, movies}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    console.log(movies);
+    //console.log(movies);
     
     if(movies === null) return;
+
 
    // const poster = movies[0]?.poster_path;     // needs to check for nullity
 
@@ -26,6 +27,7 @@ const MovieList = ({title, movies}) => {
 
         dispatch(addCastDetails(json.cast));
         dispatch(addCrewDetails(json.crew)); 
+        dispatch(addMovieId(id));
         
         navigate("/card")
    }
