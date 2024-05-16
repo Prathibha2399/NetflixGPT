@@ -17,10 +17,10 @@ const usePlayer = () => {
 
         console.log(json);
 
-        const trailers = json.results.filter(video => video.type === "Trailer");
+        const trailers = await json.results.filter(video => video.type === "Trailer");
         //const trailer = trailers.length ? trailers[0] : json.results[0];
         
-        console.log(trailers);
+        //console.log(trailers);
 
        dispatch(addPlayer(trailers));
 
