@@ -15,7 +15,19 @@ export const SecondaryContainer = () => {
 
                 <MovieList title = {"Upcoming Movies"} movies = {movies.upcommingMovies}/>
 
-                <MovieList title = {"Horror"} movies = {movies.nowPlaying}/>
+                <MovieList title = {"Horror"} movies = {movies.horrorMovies}/>
+
+                <MovieList title = {"Adventure & Mystrery"} movies = {movies.adventureMystryMovies}/>
+
+                <MovieList title = {"Comedy"} movies = {movies.fantasyMovies}/>
+
+                <MovieList title = {"Science Fiction"} movies = {movies.fictionMovies}/>
+
+                <MovieList title = {"History"} movies = {movies.historyMovies}/>
+
+                <MovieList title = {"Animations"} movies = {movies.animationMovies}/>
+
+                <MovieList title = {"Romance"} movies = {movies.romanceMovies}/>
             </div>
         </div>
     )

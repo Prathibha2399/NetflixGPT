@@ -7,6 +7,13 @@ import { useTopRated } from "../Hooks/useTopRated";
 import { useUpcomming } from "../Hooks/useUpcomming";
 import { useSelector } from "react-redux";
 import GptSearch from "./GptSeach";
+import { useHorror } from "../Hooks/useHorror";
+import { useAdvnMystry } from "../Hooks/useAdvn&Mystry";
+import { useAnimation } from "../Hooks/useAnimation";
+import { useFantasy } from "../Hooks/useFantasy";
+import { useFiction } from "../Hooks/useFiction";
+import { useRomance } from "../Hooks/useRomance";
+import { useHistory } from "../Hooks/useHistory";
 
 
 const Browse = () => {
@@ -17,6 +24,13 @@ const Browse = () => {
     usePopular();
     useUpcomming();
     useTopRated();
+    useHorror();
+    useAdvnMystry();
+    useFantasy();
+    useFiction();
+    useAnimation();
+    useHistory();
+    useRomance();
 
     return(
         <div className = "h-screen bg-gradient-to-b from-black-400 to-transparent">

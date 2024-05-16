@@ -2,7 +2,7 @@ import { API_OPTIONS } from "../utils/Constants";
 import { addCastDetails, addMovieId } from "../utils/moviesSlice";
 import MovieCard from "./MovieCard";
 import { useDispatch } from "react-redux";
-import { addCrewDetails } from "../utils/moviesSlice";
+import { addCrewDetails, addPlayer, addDetails } from "../utils/moviesSlice";
 import { useNavigate } from "react-router-dom";
 
 
@@ -28,6 +28,22 @@ const MovieList = ({title, movies}) => {
         dispatch(addCastDetails(json.cast));
         dispatch(addCrewDetails(json.crew)); 
         dispatch(addMovieId(id));
+
+        const player = await fetch('https://api.themoviedb.org/3/movie/' + id + '/videos?language=en-US', API_OPTIONS);
+
+        const json1 = await player.json();
+        console.log(json1);
+        const trailers = await json1.results.filter(video => video.type === "Trailer" || video.type === "Teaser" );
+
+        dispatch(addPlayer(trailers));
+
+        const requirement = await fetch('https://api.themoviedb.org/3/movie/'+ id + '?language=en-US', API_OPTIONS);
+
+        const details = await requirement.json();
+
+        console.log(details);
+
+       dispatch(addDetails(details));
         
         navigate("/card")
    }
@@ -49,10 +65,3 @@ const MovieList = ({title, movies}) => {
 
 
 export default MovieList;
-
-
-
-{/* <div className = "flex">
-                    {movies?.map(movie => 
-                    <MovieCard key = {movie.id} poster_path = {movie.poster_path}/>)}
-                </div> */}

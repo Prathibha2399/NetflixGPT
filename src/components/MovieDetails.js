@@ -4,10 +4,8 @@ import { IMG_CDN_URL } from "../utils/Constants";
 import backIcon from "../utils/icons8-back-arrow-60.png";
 import { useNavigate } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
-import  usePlayer  from "../Hooks/usePlayers";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { BG_IMAGE } from "../utils/Constants";
-import { useMoviesDetails } from "../Hooks/useMoviesDetails";
 
 
 const MovieDetails = () => {
@@ -17,21 +15,16 @@ const MovieDetails = () => {
     const details = useSelector(store => store.movies);
     const movDetails = useSelector(store => store.movies.movDetails);
 
-    const {genres, original_title,tagline, overview, popularity,release_date, production_companies,original_language, production_countries, spoken_languages, vote_average} = movDetails;
-
-    const {gen} = genres;
-    const {language} = spoken_languages;
-    const {companies} = production_companies;
-    const {countries} = production_countries;
+    const { original_title,tagline, overview, popularity,release_date, original_language, vote_average} = movDetails;
 
     const cast = details.castDetails;
     const crew = details.crewDetails;
 
-   usePlayer();
+   //usePlayer();
 
    const trailerVideos = useSelector((store) => store.movies.player);
    
-   useMoviesDetails();
+   //useMoviesDetails();
 
     if(!details.crewDetails && !details.castDetails) return null;
 
@@ -52,7 +45,7 @@ const MovieDetails = () => {
             <img src={backIcon} alt="icon" className = "bg-white rounded-full w-10" onClick={moveToPrevious}/>
             
         <div className = "w-[85%] m-4 mx-[5%] text-center bg-black rounded-3xl">
-            <Carousel autoplay interval={1000} infiniteLoop>
+            <Carousel autoplay interval={1000} showThumbs={false} infiniteLoop>
                 {trailerVideos.map(trailerVideo => (<iframe 
                 className="w-screen aspect-video p-2"
                 src={"https://www.youtube.com/embed/"+ trailerVideo?.key+"?autoplay=0&loop=1&modestbranding=1&mute=1&rel=0"}

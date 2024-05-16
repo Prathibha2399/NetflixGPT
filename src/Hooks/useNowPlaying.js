@@ -27,3 +27,6 @@ export const useNowPlaying = () => {
     }, []); 
 
 };
+
+
+//https://api.themoviedb.org/3/discover/movie?api_key=THE_KEY&language=en-US&sort_by=release_date.desc&page=1&with_genres=27
