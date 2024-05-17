@@ -93,7 +93,7 @@ const Login = () => {
             <Header />
 
             <div className = "absolute">
-                <img className = "h-screen w-screen object-cover"
+                <img className = "h-[100%] w-screen object-cover"
                 src = {BG_IMAGE} 
                 alt = "logo"></img>
             </div>
@@ -122,11 +122,11 @@ const Login = () => {
                     placeholder ="Password" 
                     className = "md:p-4 md:my-4 p-3 my-3 rounded-md w-full bg-gray-800"></input>
 
-                {!isSignInForm && (<input 
+               {!isSignInForm && (<input 
                     ref = {cnfPassword}
                     type="password" 
                     placeholder="Confirm Password" 
-                    className="md:p-4 md:my-4 p-3 my-3 rounded-md w-full bg-gray-800"></input>)}
+                    className="md:p-4 md:my-4 p-3 my-3 rounded-md w-full bg-gray-800"></input>)} 
 
                 <p className = "text-red-500 p-2 font-semibold text-lg">{errMessage}</p>
 

@@ -51,7 +51,7 @@ const MovieList = ({title, movies}) => {
     return (
         <div >
             <h1 className = "md:text-2xl md:font-bold text-white text-xl font-semibold md:mx-5 mx-1 my-1 w-6/12">{title}</h1>
-            <div className = "py-3 overflow-x-scroll no-scrollbar">
+            <div className = "py-3 overflow-x-scroll no-scrollbar w-full">
             <div className = "flex p-2">
             {movies?.map(movie => (
                 <div className = "flex" onClick = {(e) => handleMovieCard(movie.id)}>

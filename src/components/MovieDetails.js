@@ -42,16 +42,17 @@ const MovieDetails = () => {
 
             <div className = "text-white w-screen h-screen p-2">
 
-            <img src={backIcon} alt="icon" className = "bg-white rounded-full w-10" onClick={moveToPrevious}/>
+            <img src={backIcon} alt="icon" className = "bg-white rounded-full w-10 cursor-pointer" onClick={moveToPrevious}/>
             
         <div className = "w-[85%] m-4 mx-[5%] text-center bg-black rounded-3xl">
             <Carousel autoplay interval={1000} showThumbs={false} infiniteLoop>
-                {trailerVideos.map(trailerVideo => (<iframe 
-                className="w-screen aspect-video p-2"
-                src={"https://www.youtube.com/embed/"+ trailerVideo?.key+"?autoplay=0&loop=1&modestbranding=1&mute=1&rel=0"}
-                title="YouTube video player" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin">
-            </iframe>))}
+                {trailerVideos.map(trailerVideo => (
+                <iframe 
+                    className="w-screen aspect-video p-2"    
+                    src={"https://www.youtube-nocookie.com/embed/" + trailerVideo?.key} 
+                    title="YouTube video player" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>))}
             </Carousel></div>
 
         <div className="bg-black p-4">
